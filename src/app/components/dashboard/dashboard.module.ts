@@ -13,6 +13,8 @@ import { ExchangeListComponent } from './exchange-list/exchange-list.component';
 import { ExchangeListAddComponent } from './exchange-list/exchange-list-add/exchange-list-add.component';
 import { ExchangeListRateComponent } from './exchange-list/exchnage-list-rate/exchange-list-rate.component';
 import { ExchangeListRateAddComponent } from './exchange-list/exchnage-list-rate/exchange-list-rate-add/exchange-list-rate-add.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionScanComponent } from './transaction/transaction-scan/transaction-scan.component';
 
 const DASHBOARAD_COMPONENTS = [
     DashboardComponent,
@@ -26,7 +28,9 @@ const DASHBOARAD_COMPONENTS = [
     ExchangeListComponent,
     ExchangeListAddComponent,
     ExchangeListRateComponent,
-    ExchangeListRateAddComponent
+    ExchangeListRateAddComponent,
+    TransactionComponent,
+    TransactionScanComponent
 ]
 
 @NgModule({

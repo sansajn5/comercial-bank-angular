@@ -36,6 +36,10 @@ export class HeaderComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/bank-account')
     }
 
+    onTransaction() {
+        this.router.navigateByUrl('/dashboard/transaction')
+    }
+
     onExchangeList() {
         this.router.navigateByUrl('/dashboard/exchange-list')
     }

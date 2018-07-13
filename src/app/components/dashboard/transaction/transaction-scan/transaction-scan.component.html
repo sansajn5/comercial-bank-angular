@@ -1,0 +1,89 @@
+<div class="container" style="margin-top: 30px;">
+    <input type="file" (change)="selectFile($event)" />
+    <div class="col-md-12 col-lg-12 col-md-8 col-sm-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Transaction</li>
+            <li class="breadcrumb-item active">Create transaction</li>
+        </ol>
+        <h1 class="display-4">Create transaction</h1>
+        <form>
+            <div *ngIf="xmlModel.accountCreditorXML" class="form-group">
+                <label>Account Creditor</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.accountCreditorXML" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.code != ''" class="form-group">
+                <label>Code</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.code" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.creditor != ''" class="form-group">
+                <label>Creditor</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.creditor" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.currencyDate != ''" class="form-group">
+                <label>Currency Date</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.currencyDate" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.dateOfReceipt != ''" class="form-group">
+                <label>Date Of Receipt</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.dateOfReceipt" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.debtor != ''" class="form-group">
+                <label>Debtor</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.debtor" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.debtorAccountXML != ''" class="form-group">
+                <label>Debtor Account</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.debtorAccountXML" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.emergency != ''" class="form-group">
+                <label>Emergency</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.emergency" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.modelApproval != ''" class="form-group">
+                <label>Model Approval</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.modelApproval" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.modelAssigments != ''" class="form-group">
+                <label>Model Assigments</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.modelAssigments" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.paymentCurrencyXML != ''" class="form-group">
+                <label>Payment Currency</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.paymentCurrencyXML" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.paymentTypeXML != ''" class="form-group">
+                <label>Payment Type</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.paymentTypeXML" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.purposeOfPayment != ''" class="form-group">
+                <label>Purpose Of Payment</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.purposeOfPayment" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.referenceNumberAssigments != ''" class="form-group">
+                <label>Reference Number Assigments</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.referenceNumberAssigments" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.referenceNumberCreditor != ''" class="form-group">
+                <label>Reference Number Creditor</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.referenceNumberCreditor" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.status != ''" class="form-group">
+                <label>Status</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.status" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.sum != ''" class="form-group">
+                <label>Sum</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.sum" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.type != ''" class="form-group">
+                <label>Type</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.type" [readOnly]="true" class="form-control">
+            </div>
+            <div *ngIf="xmlModel.typeOfMistake != ''" class="form-group">
+                <label>Type Of Mistake</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="xmlModel.typeOfMistake" [readOnly]="true" class="form-control">
+            </div>
+        </form>
+        <button class="btn btn-primary" (click)="onSave()">Save</button>
+    </div>
+</div><

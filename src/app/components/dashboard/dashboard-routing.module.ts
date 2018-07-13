@@ -12,6 +12,8 @@ import { ExchangeListComponent } from './exchange-list/exchange-list.component';
 import { ExchangeListAddComponent } from './exchange-list/exchange-list-add/exchange-list-add.component';
 import { ExchangeListRateComponent } from './exchange-list/exchnage-list-rate/exchange-list-rate.component';
 import { ExchangeListRateAddComponent } from './exchange-list/exchnage-list-rate/exchange-list-rate-add/exchange-list-rate-add.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionScanComponent } from './transaction/transaction-scan/transaction-scan.component';
 
 const routes: Routes = [{ 
     path: '', 
@@ -49,6 +51,12 @@ const routes: Routes = [{
     }, {
       path: 'exchange-list-rate/:id/:rateId',
       component: ExchangeListRateAddComponent
+    },{
+      path: 'transaction',
+      component: TransactionComponent
+    },{
+      path: 'transaction-scan',
+      component: TransactionScanComponent
     }],
   }];
   

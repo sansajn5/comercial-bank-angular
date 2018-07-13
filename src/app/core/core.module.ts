@@ -12,6 +12,7 @@ import { ClientService } from './services/client.service';
 import { CurrencyService } from './services/currency.service';
 import { BankAccountService } from './services/bank-account.service';
 import { ExchangeService } from './services/exchange.service';
+import { TransactionService } from './services/transaction.service';
 
 const COMPONENTS = [
     HeaderComponent,
@@ -24,7 +25,8 @@ const SERVICES = [
     ClientService,
     CurrencyService,
     BankAccountService,
-    ExchangeService
+    ExchangeService,
+    TransactionService
 ]
 
 const BASIC_MODULES = [

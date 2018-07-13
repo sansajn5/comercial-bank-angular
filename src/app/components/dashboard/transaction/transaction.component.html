@@ -1,0 +1,14 @@
+<div class="container" style="margin-top: 30px;">
+    <div class="col-md-12 col-lg-12 col-md-8 col-sm-6">
+        <h1>Transactions</h1>
+        <ng2-smart-table #table 
+            [settings]="settings" 
+            [source]="source"
+            (rowSelect)="rowSelectedOnClick($event)"
+        >
+        </ng2-smart-table>
+        <button class="btn btn-primary" style="margin-top:20px;" (click)="setNext()">Next transaction</button>
+        <button class="btn btn-primary" style="margin-top:20px;" (click)="setPrev()">Previous transaction</button>
+        <button class="btn btn-primary" style="margin-top:20px;" (click)="onScan()">Scan transaction</button>
+    </div>
+</div>
