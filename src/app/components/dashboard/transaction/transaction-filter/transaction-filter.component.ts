@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { TransactionService } from '../../../../core/services/transaction.service';
 import { BankAccountService } from "../../../../core/services/bank-account.service";
 import { ToastrService } from 'ngx-toastr';
+import * as FileSaver from 'file-saver'; 
 
 @Component({
     selector: 'app-transaction-filter',
@@ -67,5 +68,15 @@ export class TransactionFilterComponent implements OnInit {
                 owners.push(element.owner.name)
         })
         return owners;
+    }
+
+    onPdf() {
+        localStorage.setItem('stop','1')
+        this.bankAccountService.generatePdfTwo({list:this.list, value: this.value}).toPromise()
+        .then(data => {
+            let file = new Blob([data], { type: 'application/pdf' });
+            FileSaver.saveAs(file, 'filter transaction')
+            localStorage.removeItem('stop')     
+        })
     }
 }

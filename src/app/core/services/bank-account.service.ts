@@ -38,4 +38,8 @@ export class BankAccountService {
     generatePdf(body): Observable<any> {
         return this.http.post('http://localhost:8080/api/pdf/bank-accounts', body, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'blob' });
     }
+
+    generatePdfTwo(body): Observable<any> {
+        return this.http.post('http://localhost:8080/api/pdf/filter', body, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'blob' });
+    }
 }
