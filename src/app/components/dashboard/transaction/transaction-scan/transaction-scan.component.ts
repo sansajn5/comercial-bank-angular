@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { TransactionService } from "../../../../core/services/transaction.service";
 import { ToastrService } from "ngx-toastr";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-transaction-scan',
@@ -33,14 +34,15 @@ export class TransactionScanComponent {
     constructor(
         private transactionService: TransactionService,
         private toastService: ToastrService,
+        private router: Router
     ) {}
 
     selectFile(event) {
         const name = event.target.files[0].name
-        console.log(name)
         this.transactionService.scanDocument({name: name}).toPromise()
         .then(response => {
-            // console.log(response.data)
+            this.toastService.clear();
+            this.toastService.info(`Successfully scaned document`,'Info.')
             this.xmlModel = response.data;
         })
         .catch(err => {
@@ -51,7 +53,11 @@ export class TransactionScanComponent {
 
     onSave() {
         this.transactionService.makeDocument(this.xmlModel).toPromise()
-        .then(data => console.log(data))
+        .then(data => this.router.navigateByUrl('/dashboard/transaction'))
+        .catch(err => {
+            this.toastService.clear();
+            this.toastService.error(`${err.error.error}`,'Error!')
+        });
     }
 
 }

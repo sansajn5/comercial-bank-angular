@@ -24,4 +24,8 @@ export class TransactionService {
         const id = this.localStorageService.getBank()._id;
         return this.apiService.get(`transactions-find/${id}`)
     }
+
+    findBetween(body, id): Observable<any> {
+        return this.apiService.post(`transactions-find/${id}`, body)
+    }
 }

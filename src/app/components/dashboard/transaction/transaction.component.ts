@@ -28,6 +28,10 @@ export class TransactionComponent implements OnInit {
         this.router.navigateByUrl('dashboard/transaction-scan')
     }
 
+    onFilter() {
+        this.router.navigateByUrl('dashboard/transaction-filter')
+    }
+
     getTransactions() {
         this.transactionService.getAllTransactions().toPromise()
         .then(response => {
@@ -65,6 +69,12 @@ export class TransactionComponent implements OnInit {
                     return (value.toLowerCase().includes(search.toLowerCase())) ? true : false;
                 }
             },
+            name: {
+                title: 'Owner'
+            },
+            jmbg: {
+                title: 'Owner JMBG'
+            },
             purposeOfPayment: {
                 title: 'Purpose'
             },
@@ -85,17 +95,37 @@ export class TransactionComponent implements OnInit {
         data.forEach(element => {
             Object.keys(element).forEach(key => {
                 if(key == 'states') {
-                    element[key].forEach(insideElement => {
-                        Object.keys(insideElement).forEach(keyInStates => {
-                            if(keyInStates == 'transaction'){
-                                transactions.push(insideElement[keyInStates])
-                            }
+                    if(element[key].length != 0) {
+                        const name = element.owner.name;
+                        const jmbg = element.owner.jmbg
+                        element[key].forEach(insideElement => {
+                            Object.keys(insideElement).forEach(keyInStates => {
+                                if(keyInStates == 'transaction'){
+                                    transactions.push(this.createElementForTable(insideElement[keyInStates], name, jmbg))
+                                }
+                            })
                         })
-                    })
+                    }
                 }
             })
         })
         return transactions;
+    }
+
+    createElementForTable(el, name, jmbg) {
+        return {
+            _id: el._id,
+            name: name,
+            jmbg: jmbg,
+            type: el.type,
+            sum: el.sum,
+            code: el.code,
+            emergency: el.emergency,
+            purposeOfPayment: el.purposeOfPayment,
+            accountCreditorXML: el.accountCreditorXML,
+            debtorAccountXML: el.debtorAccountXML,
+            paymentCurrencyXML: el.paymentCurrencyXML
+        }
     }
 
     setNext() {

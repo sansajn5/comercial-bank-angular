@@ -14,6 +14,7 @@ import { ExchangeListRateComponent } from './exchange-list/exchnage-list-rate/ex
 import { ExchangeListRateAddComponent } from './exchange-list/exchnage-list-rate/exchange-list-rate-add/exchange-list-rate-add.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { TransactionScanComponent } from './transaction/transaction-scan/transaction-scan.component';
+import { TransactionFilterComponent } from './transaction/transaction-filter/transaction-filter.component';
 
 const routes: Routes = [{ 
     path: '', 
@@ -57,6 +58,9 @@ const routes: Routes = [{
     },{
       path: 'transaction-scan',
       component: TransactionScanComponent
+    }, {
+      path: 'transaction-filter',
+      component: TransactionFilterComponent
     }],
   }];
   
