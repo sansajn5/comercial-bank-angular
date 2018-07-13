@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="col-xxl-12 col-md-12 col-lg-12 col-sm-6">
+        <button class="btn btn-primary" (click)="onHome()">Dashboard</button>
+        <button class="btn btn-primary" (click)="onClients()">Clients</button>
+        <button class="btn btn-primary" (click)="onCurrencys()">Currency</button>
+        <button class="btn btn-primary" (click)="onBankAccounts()">Bank Account</button>
+        <button class="btn btn-primary" (click)="onExchangeList()">Exchange List</button>
+        <button class="btn btn-primary" *ngIf="!user" (click)="onLogin()">Login</button>
+        <button class="btn btn-primary" (click)="onLogout()">Logout</button>
+        <label class="left-side">Employee, {{user.username}}</label>
+    </div>
+</div>

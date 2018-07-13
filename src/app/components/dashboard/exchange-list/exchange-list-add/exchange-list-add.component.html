@@ -1,0 +1,17 @@
+<div class="container" style="margin-top: 30px;">
+    <div class="col-md-12 col-lg-12 col-md-8 col-sm-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Currencys</li>
+            <li class="breadcrumb-item active">{{modeText}}</li>
+        </ol>
+        <h1 class="display-4">{{modeText}} Currency</h1>
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label>Start from</label>
+                <label>Format should be: "2018-05-23"</label>
+                <input type="text" [formControl]="createdDate" class="form-control">
+            </div>
+        </form>
+        <button class="btn btn-primary" [disabled]="!form.valid" (click)="onSave()">Save</button>
+    </div>
+</div>

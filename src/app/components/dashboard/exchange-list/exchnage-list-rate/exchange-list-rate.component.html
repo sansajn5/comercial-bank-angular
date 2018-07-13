@@ -1,0 +1,16 @@
+<div class="container" style="margin-top: 30px;">
+    <div class="col-md-12 col-lg-12 col-md-8 col-sm-6">
+        <h1>Exchange Rate List</h1>
+        <ng2-smart-table #table 
+            [settings]="settings" 
+            [source]="source"
+            (deleteConfirm)="onDelete($event)"
+            (rowSelect)="rowSelectedOnClick($event)"
+        >
+        </ng2-smart-table>
+        <button class="btn btn-primary" style="margin-top:20px;" (click)="setNext()">Next Exchnage Rate</button>
+        <button class="btn btn-primary" style="margin-top:20px;" (click)="setPrev()">Previous Exchnage Rate</button>
+        <button class="btn btn-primary" style="margin-top:20px;" (click)="onAdd()">Add Exchnage Rate</button>
+        <button class="btn btn-primary" style="margin-top:20px;" (click)="onEdit()">Edit Exchnage Rate</button>
+    </div>
+</div>

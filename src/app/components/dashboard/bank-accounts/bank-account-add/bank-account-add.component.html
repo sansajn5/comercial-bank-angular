@@ -1,0 +1,40 @@
+<div class="container" style="margin-top: 30px;">
+    <div class="col-md-12 col-lg-12 col-md-8 col-sm-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Bank Account</li>
+            <li class="breadcrumb-item active">{{modeText}}</li>
+        </ol>
+        <h1 class="display-4">{{modeText}} Bank Account</h1>
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label>Number</label>
+                <input type="text" [formControl]="number" [readOnly]="true" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="body">Currency</label>
+                <select  [formControl]="currency" class="form-control">
+                    <option *ngFor="let currency of currencies" value="{{currency._id}}">{{currency.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="body">Owner</label>
+                <select [formControl]="owner" class="form-control">
+                    <option *ngFor="let client of clients" [disabled]="edit == true" value="{{client._id}}">{{client.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="body">Valid</label>
+                <input type="checkbox" [formControl]="valid" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="body">Mail Reporting</label>
+                <input type="checkbox" [formControl]="mailReporting" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="body">Created Date</label>
+                <input type="text" [formControl]="createdDate" [readOnly]="true" class="form-control">
+            </div>
+        </form>
+        <button class="btn btn-primary" [disabled]="!form.valid" (click)="onSave()">Save</button>
+    </div>
+</div>

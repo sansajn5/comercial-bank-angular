@@ -1,0 +1,15 @@
+  form {
+      width: 100%;
+  }
+
+  .title {
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .full-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
