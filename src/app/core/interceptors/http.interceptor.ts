@@ -23,19 +23,21 @@ export class HttpTokenInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        this.spinnerService.show();
-        if(this.localStorageService.existInStorage('token'))
-            this.setTokenHeader();
+        
+            this.spinnerService.show();
+            if(this.localStorageService.existInStorage('token'))
+                this.setTokenHeader();
 
-        const request = req.clone({ setHeaders: this.config });
-        return next.handle(request).do( response => {
-            if(response instanceof HttpResponse)
+            const request = (!localStorage.getItem('stop')) ? req.clone({ setHeaders: this.config }) : req.clone();
+            return next.handle(request).do( response => {
+                if(response instanceof HttpResponse)
+                    this.spinnerService.hide();
+            }, error => {
                 this.spinnerService.hide();
-        }, error => {
-            this.spinnerService.hide();
-            if(error.status === 401 || error.status === 403)
-                this.router.navigateByUrl('/auth/sign-in');
-        });
+                if(error.status === 401 || error.status === 403)
+                    this.router.navigateByUrl('/auth/sign-in');
+            });
+        
     }
 
     setTokenHeader() {

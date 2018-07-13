@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { LocalDataSource } from "ng2-smart-table";
 import { BankAccountService } from "../../../core/services/bank-account.service";
 import { DatePipe } from "@angular/common";
+import * as FileSaver from 'file-saver'; 
 
 @Component({
     selector: 'app-bank-accounts',
@@ -94,6 +95,15 @@ export class BankAccountComponent implements OnInit {
         this.getBankAccounts();
     }
 
+    onPdf() {
+        localStorage.setItem('stop','1')
+        this.bankAccountService.generatePdf({list:this.data}).toPromise()
+        .then(data => {
+            let file = new Blob([data], { type: 'application/pdf' });
+            FileSaver.saveAs(file, 'bank account')
+            localStorage.removeItem('stop')     
+        })
+    }
     getBankAccounts() {
         this.bankAccountService.getAllForBank().toPromise()
         .then(response => {
