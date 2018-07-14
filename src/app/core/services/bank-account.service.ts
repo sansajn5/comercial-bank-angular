@@ -28,7 +28,7 @@ export class BankAccountService {
     }
 
     deleteBankAccount(id): Observable<any> {
-        return this.apiService.delete(`bank-accounts/${id}`)
+        return this.apiService.get(`bank-accounts-close/${id}`)
     }
 
     editBankAccount(id, body): Observable<any> {

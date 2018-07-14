@@ -79,4 +79,11 @@ export class TransactionFilterComponent implements OnInit {
             localStorage.removeItem('stop')     
         })
     }
+
+    onXML() {
+        this.transactionService.findBetweenXML(this.filter, this.forAccount).toPromise()
+        .then(response => {
+           console.log(response)
+        })
+    }
 }

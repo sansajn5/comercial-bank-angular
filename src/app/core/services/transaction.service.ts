@@ -28,4 +28,8 @@ export class TransactionService {
     findBetween(body, id): Observable<any> {
         return this.apiService.post(`transactions-find/${id}`, body)
     }
+
+    findBetweenXML(body, id): Observable<any> {
+        return this.apiService.post(`transactions-find-xml/${id}`, body)
+    }
 }
